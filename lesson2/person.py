@@ -9,9 +9,28 @@
 если он старше 18 лет, и False в противном случае
 """
 
+from datetime import date
+
 
 class Person:
-    pass
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display(self):
+        print(f'{self.name}, is {self.age} y.o.')
+
+    @classmethod
+    def from_birth_year(cls, name, birth_year):
+        age = int(date.today().year) - int(birth_year)
+        return cls(name, age)
+
+    @staticmethod
+    def is_adult(age):
+        if age >= 18:
+            return True
+        else:
+            return False
 
 
 # код для проверки 
