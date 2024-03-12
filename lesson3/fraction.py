@@ -8,9 +8,25 @@
 - __add__(self, other): магический метод, который позволяет складывать дроби и возвращать новую дробь.
 """
 
+import fractions
+
 
 class Fraction:
-    pass
+    def __init__(self, numerator, denominator):
+        self.numerator = numerator
+        self.denominator = denominator
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}({self.numerator}, {self.denominator})"
+
+    def __str__(self):
+        return f"{self.numerator}/{self.denominator}"
+
+    def __add__(self, other):
+        a = self.numerator / self.denominator
+        b = other.numerator / other.denominator
+        y = float(a+b)
+        return fractions.Fraction(y)
 
 
 # код для проверки 
